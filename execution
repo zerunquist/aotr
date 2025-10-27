@@ -1,0 +1,74 @@
+if game:IsLoaded() == false then
+	game.Loaded:Wait()
+end
+
+local returning = {}
+
+returning.maclib = loadstring(game:HttpGet("https://raw.githubusercontent.com/zakr620/H/refs/heads/main/uitesting"))()
+returning.gui = {} -- make gui table
+
+returning.serv = { -- define game services
+	wp = game:GetService("Workspace"),
+	runserv = game:GetService("RunService"),
+	reps = game:GetService("ReplicatedStorage"),
+	tweenserv = game:GetService("TweenService"),
+	guiserv = game:GetService("GuiService"),
+	players = game:GetService("Players"),
+	http = game:GetService("HttpService"),
+	startergui = game:GetService("StarterGui"),
+	vip = game:GetService("VirtualInputManager"),
+	uip = game:GetService("UserInputService"),
+	tpserv = game:GetService("TeleportService"),
+	path = game:GetService("PathfindingService"),
+}
+
+do	 -- make gui window
+	returning.gui.window = returning.maclib:Window({
+		Title = "Tekkit Hub",
+		Subtitle = "AOTR | Premium V2.0",
+		Size = UDim2.new(0,560,0,480),
+		DragStyle = 1,
+		DisabledWindowControls = {"Exit"},
+		ShowUserInfo = false,
+		Keybind = Enum.KeyCode.RightShift,
+		AcrylicBlur = false,
+	})
+
+	local base = returning.gui.window:GetBase()
+    if base then 
+		base.Transparency = 0.3 
+		base.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+		pcall(function()  
+			if base.Sidebar.SidebarGroup.UserInfo then base.Sidebar.SidebarGroup.UserInfo:Destroy() end
+		end)
+	end
+end
+
+while task.wait(2) do
+	local base = returning.gui.window:GetBase()
+	if base then
+		base.Transparency = 0.3 
+		base.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+		pcall(function()  
+			if base.Sidebar.SidebarGroup.UserInfo then base.Sidebar.SidebarGroup.UserInfo:Destroy() end
+
+			if returning.serv.guiserv:FindFirstChild("instancegui") then s.guiserv:FindFirstChild("instancegui"):Destroy() end
+
+			local gui = Instance.new("ScreenGui")
+			gui.Parent = returning.serv.guiserv
+			gui.Name = "instancegui"
+			local size = gui.AbsoluteSize
+			local sizex = returning.serv.uip.TouchEnabled and size.X * 0.75 or size.X * 0.5
+			local sizey = returning.serv.uip.TouchEnabled and size.Y * 0.8 or size.Y * 0.6
+
+			base.Size = UDim2.new(0, sizex, 0, sizey)
+
+			local content = base:FindFirstChild("Content")
+			if content then
+				content.Size = UDim2.new(0.676, 0, 1, 0)
+			end
+		end)
+	end
+end
+
+return returning
