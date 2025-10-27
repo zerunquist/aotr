@@ -51,8 +51,9 @@ while task.wait(2) do
 		base.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
 		pcall(function()  
 			if base.Sidebar.SidebarGroup.UserInfo then base.Sidebar.SidebarGroup.UserInfo:Destroy() end
+		end)
 
-			if returning.serv.guiserv:FindFirstChild("instancegui") then s.guiserv:FindFirstChild("instancegui"):Destroy() end
+		if returning.serv.guiserv:FindFirstChild("instancegui") then s.guiserv:FindFirstChild("instancegui"):Destroy() end
 
 			local gui = Instance.new("ScreenGui")
 			gui.Parent = returning.serv.guiserv
@@ -67,7 +68,6 @@ while task.wait(2) do
 			if content then
 				content.Size = UDim2.new(0.676, 0, 1, 0)
 			end
-		end)
 	end
 end
 
