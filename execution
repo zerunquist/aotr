@@ -39,7 +39,7 @@ do	 -- make gui window
 		base.Transparency = 0.3 
 		base.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
 		base.MouseEnter:Connect(function()
-			returning.serv.uip.MouseEnabled = true
+			returning.serv.uip.MouseIconEnabled = true
 		end)
 		pcall(function()  
 			if base.Sidebar.SidebarGroup.UserInfo then base.Sidebar.SidebarGroup.UserInfo:Destroy() end
