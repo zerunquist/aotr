@@ -38,7 +38,7 @@ do	 -- make gui window
     if base then 
 		base.Transparency = 0.3 
 		base.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-		base.OnMouseEnter:Connect(function()
+		base.MouseEnter:Connect(function()
 			returning.serv.uip.MouseEnabled = true
 		end)
 		pcall(function()  
