@@ -34,8 +34,6 @@ do	 -- make gui window
 		AcrylicBlur = false,
 	})
 
-	returning.maclib:SetFolder("Tekkit - V2.0")
-
 	local base = returning.gui.window:GetBase()
     if base then 
 		base.Transparency = 0.3 
